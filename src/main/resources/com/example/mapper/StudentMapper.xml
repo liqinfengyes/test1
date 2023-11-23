@@ -1,0 +1,52 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.dao.StudentMapper">
+
+
+<!--    将sql语句抽取-->
+    <sql id="selectStudent">
+        select * from student
+    </sql>
+    <!--按id查询-->
+        <select id="findById" resultType="com.example.domain.Student">
+            select * from student where id=#{id}
+        </select>
+
+    <select id="findAll" resultType="com.example.domain.Student">
+       <include refid="selectStudent"/>
+    </select>
+
+    <select id="findByCondition" parameterType="com.example.domain.Student" resultType="com.example.domain.Student">
+        <include refid="selectStudent"/>
+    <where>
+        <if test="id!=0">
+           and id=#{id}
+        </if>
+        <if test="name!=null">
+            and name=#{name}
+        </if>
+        <if test="grade!=0">
+        and grade=#{grade}
+        </if>
+        <if test="address!=null">
+            and address=#{address}
+        </if>
+    </where>
+    </select>
+
+    <select id="findlds" resultType="com.example.domain.Student" parameterType="list">
+        <include refid="selectStudent"/>
+        <where>
+           <foreach collection="list" item="id" open="id in (" close=")" separator="," >
+              #{id}
+           </foreach>
+        </where>
+    </select>
+
+
+
+
+
+</mapper>
