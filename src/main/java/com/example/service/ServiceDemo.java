@@ -49,7 +49,7 @@ public class ServiceDemo {
         for(Student student : studentList){
             System.out.println(student);
         }
-
+        System.out.println("1");
         sqlSession.close();
 //        System.out.println(studentList);
 //        List<Student> studentList = studentMapper.findByCondition(student);
