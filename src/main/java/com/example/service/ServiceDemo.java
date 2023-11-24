@@ -51,6 +51,7 @@ public class ServiceDemo {
         }
         System.out.println("1");
         System.out.println("211");
+        System.out.println("2111");
         sqlSession.close();
 //        System.out.println(studentList);
 //        List<Student> studentList = studentMapper.findByCondition(student);
