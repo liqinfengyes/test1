@@ -55,6 +55,9 @@ public class ServiceDemo {
         System.out.println("hit-fix");
         System.out.println("push-fix");
         System.out.println("pull-commit");
+
+
+        //github更新
         sqlSession.close();
 //        System.out.println(studentList);
 //        List<Student> studentList = studentMapper.findByCondition(student);
